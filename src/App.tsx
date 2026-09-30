@@ -10,6 +10,7 @@ import { ContactSection } from './components/ContactSection';
 import { ResumeModal } from './components/ResumeModal';
 import { Footer } from './components/Footer';
 import { ScrollProgressBar } from './components/ScrollProgressBar';
+import { ProfileSidebarCard } from './components/ProfileSidebarCard';
 import { CheckCircle2 } from 'lucide-react';
 
 export default function App() {
@@ -57,36 +58,51 @@ export default function App() {
       {/* Floating Pill Navigation */}
       <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Content Area */}
-      <main className="flex-1">
-        
-        {/* 1. Header & Hero Section */}
-        <Hero 
-          onOpenResume={() => setIsResumeOpen(true)} 
-          onCopyText={handleCopyText} 
-        />
+      {/* Main Content Area: Responsive Dual-Column Layout with Sticky Left Profile Card */}
+      <main className="flex-1 max-w-[1536px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          
+          {/* Left Column: Persistent Card View with Photo, Intro & Connect Options */}
+          <div className="lg:col-span-4 xl:col-span-4 lg:sticky lg:top-24 z-20">
+            <ProfileSidebarCard 
+              onOpenResume={() => setIsResumeOpen(true)}
+              onCopyText={handleCopyText}
+            />
+          </div>
 
-        {/* 2. Highlight Stats / Key Achievements Card Grid */}
-        <StatsGrid />
+          {/* Right Column: Narrative Sections */}
+          <div className="lg:col-span-8 xl:col-span-8 space-y-16 lg:space-y-24 min-w-0">
+            
+            {/* 1. Header & Hero Section */}
+            <Hero 
+              onOpenResume={() => setIsResumeOpen(true)} 
+              onCopyText={handleCopyText} 
+            />
 
-        {/* 3. Core Competencies & Tech Stack Section */}
-        <TechStack onSelectTechFilter={handleSelectTechFilter} />
+            {/* 2. Highlight Stats / Key Achievements Card Grid */}
+            <StatsGrid />
 
-        {/* 4. Projects Showcase (Interactive Cards with Tag Filters & Modal) */}
-        <ProjectsShowcase 
-          initialTagFilter={selectedTechFilter}
-          onClearTagFilter={() => setSelectedTechFilter(null)}
-        />
+            {/* 3. Core Competencies & Tech Stack Section */}
+            <TechStack onSelectTechFilter={handleSelectTechFilter} />
 
-        {/* 5. Professional Work Experience (Interactive Timeline with Expandable points) */}
-        <ExperienceTimeline />
+            {/* 4. Projects Showcase (Interactive Cards with Tag Filters & Modal) */}
+            <ProjectsShowcase 
+              initialTagFilter={selectedTechFilter}
+              onClearTagFilter={() => setSelectedTechFilter(null)}
+            />
 
-        {/* 6. Education, Languages & Engineering Governance */}
-        <EducationLanguages />
+            {/* 5. Professional Work Experience (Interactive Timeline with Expandable points) */}
+            <ExperienceTimeline />
 
-        {/* 7. Contact Section & Quick Copy Direct Connect */}
-        <ContactSection onCopyText={handleCopyText} />
+            {/* 6. Education, Languages & Engineering Governance */}
+            <EducationLanguages />
 
+            {/* 7. Contact Section & Quick Copy Direct Connect */}
+            <ContactSection onCopyText={handleCopyText} />
+
+          </div>
+
+        </div>
       </main>
 
       {/* Footer */}

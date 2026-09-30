@@ -94,19 +94,32 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         <div id="printable-resume" className="p-6 sm:p-10 overflow-y-auto space-y-8 print:p-0 print:bg-white print:text-black">
           
           {/* Header */}
-          <div className="border-b border-slate-800 pb-6 print:border-black">
-            <h1 id="resume-title" className="text-2xl sm:text-3xl font-extrabold text-white print:text-black tracking-tight">
-              {PERSONAL_INFO.name}
-            </h1>
-            <p className="text-base font-semibold text-indigo-400 print:text-indigo-800 mt-1">
-              {PERSONAL_INFO.role}
-            </p>
-            <p className="text-xs sm:text-sm text-slate-400 print:text-gray-700 mt-1">
-              {PERSONAL_INFO.tagline}
-            </p>
+          <div className="border-b border-slate-800 pb-6 print:border-black flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+            <div className="space-y-1">
+              <h1 id="resume-title" className="text-2xl sm:text-3xl font-extrabold text-white print:text-black tracking-tight">
+                {PERSONAL_INFO.name}
+              </h1>
+              <p className="text-base font-semibold text-indigo-400 print:text-indigo-800">
+                {PERSONAL_INFO.role}
+              </p>
+              <p className="text-xs sm:text-sm text-slate-400 print:text-gray-700">
+                {PERSONAL_INFO.tagline}
+              </p>
+            </div>
 
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-indigo-500/40 shrink-0 shadow-md">
+              <img
+                src="/src/assets/images/sumit_kumar_avatar_1790755668027.jpg"
+                alt="Sumit Kumar Portrait"
+                className="w-full h-full object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+
+          <div className="border-b border-slate-800 pb-4 print:border-black">
             {/* Contact details row */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-4 text-xs text-slate-300 print:text-black">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-300 print:text-black">
               <span className="flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5 text-indigo-400 print:text-black" />
                 {PERSONAL_INFO.location}
