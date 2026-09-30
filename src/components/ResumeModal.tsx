@@ -5,7 +5,7 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Linkedin, 
+  Linkedin,
   Download, 
   ExternalLink,
   Award,
@@ -20,8 +20,11 @@ import {
   WORK_EXPERIENCES, 
   EDUCATION_DATA, 
   LANGUAGES_DATA,
-  PROJECTS
+  PROJECTS,
+  CERTIFICATIONS_DATA
 } from '../data/portfolioData';
+import { AVATAR_IMAGE } from '../assets/avatarData';
+import avatarImg from '../assets/sumit_kumar_avatar_1790755668027.png';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -109,10 +112,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-indigo-500/40 shrink-0 shadow-md">
               <img
-                src="/src/assets/images/sumit_kumar_avatar_1790755668027.jpg"
+                src={AVATAR_IMAGE || avatarImg || '/avatar.jpg'}
                 alt="Sumit Kumar Portrait"
                 className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== window.location.origin + '/avatar.jpg') {
+                    target.src = '/avatar.jpg';
+                  }
+                }}
               />
             </div>
           </div>
@@ -235,6 +244,33 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   <span className="font-bold text-white print:text-black">{p.title}</span>
                   <span className="text-[11px] text-indigo-400 block mb-1">{p.subtitle}</span>
                   <p className="text-[11px] text-slate-400 print:text-gray-700 line-clamp-2">{p.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Licenses & Certifications */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-indigo-400 print:text-black font-mono">
+                Licenses & Certifications
+              </h2>
+              <a 
+                href="https://www.linkedin.com/in/sumit-kumar-android/details/certifications/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] text-indigo-400 print:text-black underline flex items-center gap-1"
+              >
+                <span>Verify on LinkedIn</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </a>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              {CERTIFICATIONS_DATA.map((c) => (
+                <div key={c.id} className="p-2 rounded-lg bg-slate-950/60 print:bg-gray-50 border border-slate-800 print:border-gray-300">
+                  <div className="font-semibold text-white print:text-black leading-tight">{c.title}</div>
+                  <div className="text-[11px] text-slate-400 print:text-gray-700">{c.issuer}</div>
+                  <div className="text-[10px] text-indigo-400/90 print:text-gray-600 mt-0.5">{c.skills.slice(0, 3).join(' • ')}</div>
                 </div>
               ))}
             </div>

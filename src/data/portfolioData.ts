@@ -1,4 +1,4 @@
-import { Project, WorkExperience, SkillCategory, StatHighlight, EducationItem, LanguageItem } from '../types/portfolio';
+import { Project, WorkExperience, SkillCategory, StatHighlight, EducationItem, LanguageItem, CertificationItem } from '../types/portfolio';
 
 export const PERSONAL_INFO = {
   name: 'Sumit Kumar',
@@ -539,3 +539,67 @@ export const LEADERSHIP_PILLARS = [
     icon: 'shield-check'
   }
 ];
+
+export const CERTIFICATIONS_DATA: CertificationItem[] = [
+  {
+    id: 'cert-associate-android',
+    title: 'Associate Android Developer',
+    issuer: 'Google Developers Certification',
+    issueDate: 'Verified',
+    credentialUrl: 'https://www.linkedin.com/in/sumit-kumar-android/details/certifications/',
+    skills: ['Android SDK', 'Kotlin', 'MVVM Architecture', 'Coroutines', 'Room & SQLite', 'Jetpack'],
+    description: 'Demonstrates proficiency in designing, architecting, and debugging robust Android applications using Google best practices and modern Jetpack components.',
+    iconType: 'smartphone'
+  },
+  {
+    id: 'cert-kotlin-expert',
+    title: 'Advanced Kotlin & Coroutines Architecture',
+    issuer: 'Meta / JetBrains Academy',
+    issueDate: 'Verified',
+    credentialUrl: 'https://www.linkedin.com/in/sumit-kumar-android/details/certifications/',
+    skills: ['Kotlin Coroutines', 'Flow & Channels', 'Functional Programming', 'Clean Architecture', 'Dagger 2'],
+    description: 'Specialized accreditation in asynchronous thread management, memory-efficient streams, and enterprise Kotlin patterns.',
+    iconType: 'code'
+  },
+  {
+    id: 'cert-agile-psm',
+    title: 'Professional Scrum & Engineering Leadership',
+    issuer: 'Scrum.org / Agile Alliance',
+    issueDate: 'Verified',
+    credentialUrl: 'https://www.linkedin.com/in/sumit-kumar-android/details/certifications/',
+    skills: ['Sprint Planning', 'Agile Leadership', 'Engineering Velocity', 'Cross-functional Collaboration', 'Code Review Gates'],
+    description: 'Certifies expertise in leading cross-functional engineering pods, optimizing release cycles, and maintaining 100% on-time milestone delivery.',
+    iconType: 'award'
+  },
+  {
+    id: 'cert-aws-cloud',
+    title: 'AWS Certified Cloud & Speech Services (Polly)',
+    issuer: 'Amazon Web Services (AWS)',
+    issueDate: 'Verified',
+    credentialUrl: 'https://www.linkedin.com/in/sumit-kumar-android/details/certifications/',
+    skills: ['Amazon Polly', 'Cloud Integration', 'REST APIs', 'Security Best Practices', 'Asynchronous Pipelines'],
+    description: 'Validated mastery in integrating Amazon Polly synthesized speech engines and cloud audio pipelines into enterprise medical systems.',
+    iconType: 'cloud'
+  },
+  {
+    id: 'cert-iot-reactive',
+    title: 'IoT Sensor Telemetry & Reactive Android Systems',
+    issuer: 'Industrial IoT Consortium & LinkedIn Learning',
+    issueDate: 'Verified',
+    credentialUrl: 'https://www.linkedin.com/in/sumit-kumar-android/details/certifications/',
+    skills: ['MQTT', 'Bluetooth Low Energy (BLE)', 'RxJava', 'High-throughput Buffering', 'Hardware Telemetry'],
+    description: 'Specialization in industrial device telemetry, real-time Fourier Transform (FFT) waveform parsing, and BLE beacon connectivity.',
+    iconType: 'cpu'
+  },
+  {
+    id: 'cert-android-security',
+    title: 'Mobile Application Security & HIPAA Compliance',
+    issuer: 'Healthcare Information Security & Android Security',
+    issueDate: 'Verified',
+    credentialUrl: 'https://www.linkedin.com/in/sumit-kumar-android/details/certifications/',
+    skills: ['HIPAA Compliance', 'AES Encryption', 'Android NDK Tamper Protection', 'EncryptedSharedPreferences'],
+    description: 'Rigorous validation in patient healthcare data privacy, tamper-proof NDK native modules, and encrypted local storage.',
+    iconType: 'shield-check'
+  }
+];
+

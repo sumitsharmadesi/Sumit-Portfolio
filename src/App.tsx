@@ -5,6 +5,7 @@ import { StatsGrid } from './components/StatsGrid';
 import { TechStack } from './components/TechStack';
 import { ProjectsShowcase } from './components/ProjectsShowcase';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
+import { CertificationsSection } from './components/CertificationsSection';
 import { EducationLanguages } from './components/EducationLanguages';
 import { ContactSection } from './components/ContactSection';
 import { ResumeModal } from './components/ResumeModal';
@@ -94,7 +95,10 @@ export default function App() {
             {/* 5. Professional Work Experience (Interactive Timeline with Expandable points) */}
             <ExperienceTimeline />
 
-            {/* 6. Education, Languages & Engineering Governance */}
+            {/* 6. Professional Certifications & Accreditations */}
+            <CertificationsSection />
+
+            {/* 7. Education, Languages & Engineering Governance */}
             <EducationLanguages />
 
             {/* 7. Contact Section & Quick Copy Direct Connect */}

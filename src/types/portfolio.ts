@@ -69,3 +69,16 @@ export interface LanguageItem {
   proficiency: string;
   levelPercent: number;
 }
+
+export interface CertificationItem {
+  id: string;
+  title: string;
+  issuer: string;
+  issueDate: string;
+  expirationDate?: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  skills: string[];
+  description?: string;
+  iconType?: 'award' | 'shield-check' | 'smartphone' | 'cpu' | 'cloud' | 'code' | 'check-circle';
+}

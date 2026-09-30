@@ -1,8 +1,8 @@
 import React from 'react';
 import { 
   Mail, 
-  Phone, 
-  Linkedin, 
+  Phone,
+  Linkedin,
   MapPin, 
   FileText, 
   Send, 
@@ -16,6 +16,8 @@ import {
   Briefcase
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { AVATAR_IMAGE } from '../assets/avatarData';
+import avatarImg from '../assets/sumit_kumar_avatar_1790755668027.png';
 
 interface ProfileSidebarCardProps {
   onOpenResume: () => void;
@@ -28,8 +30,6 @@ export const ProfileSidebarCard: React.FC<ProfileSidebarCardProps> = ({
   onCopyText,
   className = ''
 }) => {
-  const avatarUrl = "/src/assets/images/sumit_kumar_avatar_1790755668027.png";
-
   return (
     <aside className={`w-full ${className}`} aria-label="Profile and Contact Card">
       <div className="glow-card rounded-3xl bg-slate-900/90 border border-slate-800/90 p-6 sm:p-7 shadow-2xl backdrop-blur-md flex flex-col justify-between">
@@ -42,10 +42,16 @@ export const ProfileSidebarCard: React.FC<ProfileSidebarCardProps> = ({
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-3xl blur-md opacity-50 group-hover:opacity-80 transition duration-300"></div>
             <div className="relative w-40 h-40 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-2 border-slate-700/80 bg-slate-950 shadow-inner">
               <img
-                src={avatarUrl}
+                src={AVATAR_IMAGE || avatarImg || '/avatar.jpg'}
                 alt="Sumit Kumar - Associate Manager - Android"
                 className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== window.location.origin + '/avatar.jpg') {
+                    target.src = '/avatar.jpg';
+                  }
+                }}
               />
             </div>
             
