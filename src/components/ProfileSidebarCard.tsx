@@ -28,7 +28,7 @@ export const ProfileSidebarCard: React.FC<ProfileSidebarCardProps> = ({
   onCopyText,
   className = ''
 }) => {
-  const avatarUrl = "/src/assets/images/sumit_kumar_avatar_1790755668027.jpg";
+  const avatarUrl = "/src/assets/images/sumit_kumar_avatar_1790755668027.png";
 
   return (
     <aside className={`w-full ${className}`} aria-label="Profile and Contact Card">
